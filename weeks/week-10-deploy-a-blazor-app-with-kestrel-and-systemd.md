@@ -17,8 +17,6 @@
 
 **Deliverable:** Your app running on the VPS, surviving a reboot, reachable on its Kestrel port.
 
-**My notes:** [notes/week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md](../notes/week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md)
-
 ---
 
 [← Week 9](week-09-provision-and-harden-a-vps.md) | [Overview](../README.md) | [Week 11 →](week-11-nginx-reverse-proxy-and-tls.md)

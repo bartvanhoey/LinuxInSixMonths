@@ -17,8 +17,6 @@
 
 **Deliverable:** A clean-room rebuild in under one hour, documented.
 
-**My notes:** [notes/week-26-capstone-and-review.md](../notes/week-26-capstone-and-review.md)
-
 ---
 
 [← Week 25](week-25-monitoring-and-upkeep.md) | [Overview](../README.md)

@@ -17,8 +17,6 @@
 
 **Deliverable:** A working unit and timer pair in your repo, plus a systemd cheat sheet.
 
-**My notes:** [notes/week-07-systemd-and-journald.md](../notes/week-07-systemd-and-journald.md)
-
 ---
 
 [← Week 6](week-06-processes-and-signals.md) | [Overview](../README.md) | [Week 8 →](week-08-packages-and-storage.md)

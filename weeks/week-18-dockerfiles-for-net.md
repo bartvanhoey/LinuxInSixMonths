@@ -17,8 +17,6 @@
 
 **Deliverable:** Dockerfile for your Blazor app with the image size before and after optimisation.
 
-**My notes:** [notes/week-18-dockerfiles-for-net.md](../notes/week-18-dockerfiles-for-net.md)
-
 ---
 
 [← Week 17](week-17-docker-fundamentals.md) | [Overview](../README.md) | [Week 19 →](week-19-docker-compose.md)

@@ -17,8 +17,6 @@
 
 **Deliverable:** Your app live on a domain with valid TLS and an A grade on an online TLS test.
 
-**My notes:** [notes/week-11-nginx-reverse-proxy-and-tls.md](../notes/week-11-nginx-reverse-proxy-and-tls.md)
-
 ---
 
 [← Week 10](week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md) | [Overview](../README.md) | [Week 12 →](week-12-break-it-on-purpose.md)

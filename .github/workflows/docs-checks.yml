@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: 22
       - name: Lint Markdown
-        run: npx --yes markdownlint-cli2 "README.md" "weeks/*.md" "notes/*.md"
+        run: npx --yes markdownlint-cli2 "README.md" "weeks/*.md"
 
   link-check:
     runs-on: ubuntu-latest
@@ -25,5 +25,5 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --include-fragments --no-progress "README.md" "weeks/*.md" "notes/*.md"
+          args: --include-fragments --no-progress "README.md" "weeks/*.md"
           fail: true

@@ -99,7 +99,7 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 - [Week 25 - Monitoring and upkeep](weeks/week-25-monitoring-and-upkeep.md): Know about problems before users do.
 - [Week 26 - Capstone and review](weeks/week-26-capstone-and-review.md): Prove the whole chain works from nothing.
 
-## Final self-check: after 26 weeks I can...
+## Final self-check: what I can do after 26 weeks
 
 - [ ] Work in a Linux shell all day and write one-liners with grep, sed, awk and pipes.
 - [ ] Explain users, groups, permissions, sudo and fix 'permission denied' quickly.

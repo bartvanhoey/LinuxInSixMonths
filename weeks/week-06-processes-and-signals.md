@@ -10,7 +10,7 @@
 
 **Exercises:**
 
-- [ ] Use ps, top/htop, pgrep, kill, nice, jobs, bg/fg, lsof and explore /proc/<pid>.
+- [ ] Use ps, top/htop, pgrep, kill, nice, jobs, bg/fg, lsof and explore `/proc/<pid>`.
 - [ ] Start a .NET app, find its PID, inspect its open files, threads and memory in /proc.
 - [ ] Send SIGTERM versus SIGKILL and observe graceful shutdown via IHostApplicationLifetime.
 - [ ] Learn ulimit and what an out-of-memory kill looks like (dmesg).

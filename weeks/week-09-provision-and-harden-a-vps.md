@@ -17,6 +17,8 @@
 
 **Deliverable:** A hardening checklist you could hand to a colleague, with every command listed.
 
+**My notes:** [notes/week-09-provision-and-harden-a-vps.md](../notes/week-09-provision-and-harden-a-vps.md)
+
 ---
 
 [← Week 8](week-08-packages-and-storage.md) | [Overview](../README.md) | [Week 10 →](week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md)

@@ -17,6 +17,8 @@
 
 **Deliverable:** Phase 4 checkpoint: a runbook another person could follow at 3 a.m.
 
+**My notes:** [notes/week-16-bash-ii-and-a-troubleshooting-method.md](../notes/week-16-bash-ii-and-a-troubleshooting-method.md)
+
 ---
 
 [← Week 15](week-15-bash-scripting-i.md) | [Overview](../README.md) | [Week 17 →](week-17-docker-fundamentals.md)

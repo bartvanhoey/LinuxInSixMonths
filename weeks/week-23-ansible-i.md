@@ -17,6 +17,8 @@
 
 **Deliverable:** A base-hardening playbook that turns a fresh VM into your standard server.
 
+**My notes:** [notes/week-23-ansible-i.md](../notes/week-23-ansible-i.md)
+
 ---
 
 [← Week 22](week-22-pipeline-to-production.md) | [Overview](../README.md) | [Week 24 →](week-24-ansible-ii.md)

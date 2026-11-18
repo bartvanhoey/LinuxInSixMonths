@@ -30,13 +30,13 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 
 | Phase | Focus | Weeks | What you get |
 | --- | --- | --- | --- |
-| [Phase 1](#phase-1-shell-fluency) | **Shell fluency** | Weeks 1-4 | Live in WSL2 daily; pipes, text tools, SSH, vim/tmux. |
-| [Phase 2](#phase-2-linux-fundamentals) | **Linux fundamentals** | Weeks 5-8 | Permissions, processes, systemd, packages, storage. |
-| [Phase 3](#phase-3-run-a-real-server) | **Run a real server** | Weeks 9-12 | VPS from scratch: hardening, Blazor on Kestrel, nginx, TLS, break and fix. |
-| [Phase 4](#phase-4-networking-bash-troubleshooting) | **Networking, Bash, troubleshooting** | Weeks 13-16 | ss/tcpdump/dig, tunnels, solid scripts, a debugging method. |
-| [Phase 5](#phase-5-containers) | **Containers** | Weeks 17-20 | Dockerfiles for .NET, compose, hardening, registries. |
-| [Phase 6](#phase-6-cicd-on-linux) | **CI/CD on Linux** | Weeks 21-22 | Self-hosted Azure DevOps agent, pipeline to production. |
-| [Phase 7](#phase-7-automation-monitoring-capstone) | **Automation, monitoring, capstone** | Weeks 23-26 | Ansible, Prometheus/Grafana, full rebuild from zero. |
+| [1](#phase-1-shell-fluency) | **Shell fluency** | 1-4 | Live in WSL2 daily; pipes, text tools, SSH, vim/tmux. |
+| [2](#phase-2-linux-fundamentals) | **Linux fundamentals** | 5-8 | Permissions, processes, systemd, packages, storage. |
+| [3](#phase-3-run-a-real-server) | **Run a real server** | 9-12 | VPS from scratch: hardening, Blazor on Kestrel, nginx, TLS, break and fix. |
+| [4](#phase-4-networking-bash-troubleshooting) | **Networking, Bash, troubleshooting** | 13-16 | ss/tcpdump/dig, tunnels, solid scripts, a debugging method. |
+| [5](#phase-5-containers) | **Containers** | 17-20 | Dockerfiles for .NET, compose, hardening, registries. |
+| [6](#phase-6-cicd-on-linux) | **CI/CD on Linux** | 21-22 | Self-hosted Azure DevOps agent, pipeline to production. |
+| [7](#phase-7-automation-monitoring-capstone) | **Automation, monitoring, capstone** | 23-26 | Ansible, Prometheus/Grafana, full rebuild from zero. |
 
 ## Weekly plan
 

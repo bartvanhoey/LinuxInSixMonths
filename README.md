@@ -2,6 +2,16 @@
 
 A 26-week plan for the senior .NET developer: from daily WSL2 use to running, automating and monitoring production servers.
 
+## Health Audit
+
+**Last assessed:** 2026-11-18 | **Overall:** 2.5 — Fair
+
+Build F? · Quality D? · Architecture A? · Tests F? · Dead Code A? · API A~? · Security A? · Docs B?
+
+**Scope:** Docs-only repository; Fallback checks (markdownlint, link and structure checks).
+
+> Full report: [reports/health-audit-2026-11-18.md](reports/health-audit-2026-11-18.md)
+
 ## How to use this plan
 
 - **Time budget:** about 6-8 hours per week, for example four evenings of one hour plus one longer weekend session. Missing a week is fine; shift everything and keep going.
@@ -89,7 +99,7 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 - [Week 25 - Monitoring and upkeep](weeks/week-25-monitoring-and-upkeep.md): Know about problems before users do.
 - [Week 26 - Capstone and review](weeks/week-26-capstone-and-review.md): Prove the whole chain works from nothing.
 
-## Final self-check: after 26 weeks I can...
+## Final self-check: what I can do after 26 weeks
 
 - [ ] Work in a Linux shell all day and write one-liners with grep, sed, awk and pipes.
 - [ ] Explain users, groups, permissions, sudo and fix 'permission denied' quickly.

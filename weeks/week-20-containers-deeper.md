@@ -17,8 +17,6 @@
 
 **Deliverable:** Phase 5 checkpoint: a hardened, scanned, small image pushed to a registry.
 
-**My notes:** [notes/week-20-containers-deeper.md](../notes/week-20-containers-deeper.md)
-
 ---
 
 [← Week 19](week-19-docker-compose.md) | [Overview](../README.md) | [Week 21 →](week-21-azure-devops-agent-on-linux.md)

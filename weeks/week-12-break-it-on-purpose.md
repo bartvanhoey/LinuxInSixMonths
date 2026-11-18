@@ -17,8 +17,6 @@
 
 **Deliverable:** Five post-mortems. Phase 3 checkpoint: rebuild the whole server from your notes in under 2 hours.
 
-**My notes:** [notes/week-12-break-it-on-purpose.md](../notes/week-12-break-it-on-purpose.md)
-
 ---
 
 [← Week 11](week-11-nginx-reverse-proxy-and-tls.md) | [Overview](../README.md) | [Week 13 →](week-13-networking-fundamentals.md)

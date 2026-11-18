@@ -17,8 +17,6 @@
 
 **Deliverable:** A working WSL dev setup and a short note of what felt different from Windows.
 
-**My notes:** [notes/week-01-wsl2-as-your-daily-driver.md](../notes/week-01-wsl2-as-your-daily-driver.md)
-
 ---
 
 [Overview](../README.md) | [Week 2 →](week-02-filesystem-and-files.md)

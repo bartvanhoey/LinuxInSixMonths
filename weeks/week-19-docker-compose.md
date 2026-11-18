@@ -17,8 +17,6 @@
 
 **Deliverable:** The full stack running from one compose file on the VPS.
 
-**My notes:** [notes/week-19-docker-compose.md](../notes/week-19-docker-compose.md)
-
 ---
 
 [← Week 18](week-18-dockerfiles-for-net.md) | [Overview](../README.md) | [Week 20 →](week-20-containers-deeper.md)

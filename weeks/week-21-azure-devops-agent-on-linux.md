@@ -17,8 +17,6 @@
 
 **Deliverable:** A self-hosted Linux agent that builds your app.
 
-**My notes:** [notes/week-21-azure-devops-agent-on-linux.md](../notes/week-21-azure-devops-agent-on-linux.md)
-
 ---
 
 [← Week 20](week-20-containers-deeper.md) | [Overview](../README.md) | [Week 22 →](week-22-pipeline-to-production.md)

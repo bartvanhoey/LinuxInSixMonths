@@ -17,8 +17,6 @@
 
 **Deliverable:** A file of 15 useful one-liners, each with a one-line explanation.
 
-**My notes:** [notes/week-03-pipes-and-text-tools.md](../notes/week-03-pipes-and-text-tools.md)
-
 ---
 
 [← Week 2](week-02-filesystem-and-files.md) | [Overview](../README.md) | [Week 4 →](week-04-editors-tmux-and-ssh-basics.md)

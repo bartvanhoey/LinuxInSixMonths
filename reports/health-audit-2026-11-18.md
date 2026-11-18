@@ -3,46 +3,50 @@
 
 **Project:** LinuxInSixMonths | **Stack:** Markdown documentation (no code, no manifests) | **Date:** 2026-11-18 | **Assessed by:** Claude
 
-**Scope:** Docs-only repository (`README.md` + 26 week files, 690 lines). No build system, so every dimension used the Fallback column in `references/tools-by-stack.md` and carries a `?`. Build Health = `markdownlint-cli2` + link checks. Test Coverage = presence of automated checks.
+**Scope:** Docs-only repository (`README.md` + 26 week files, 700 lines). No build system, so every dimension used the Fallback column in `references/tools-by-stack.md` and carries a `?`. Build Health = `markdownlint-cli2` + link checks. Test Coverage = presence of automated checks. The `reports/` folder is excluded from lint (generated format, 26 findings).
 
 ### Grades
 
 | Dimension | Grade | Score | Key Finding |
 |-----------|-------|-------|-------------|
-| Build Health | F? | 55 | 0 broken links, but 161 markdownlint findings (151 are MD013 line-length) |
-| Code Quality | D? | 62 | 2 content issues in 0.69K lines (2.9/1K): unrendered `<pid>`, heading ending in `...` |
+| Build Health | A? | 95 | 0 markdownlint findings in 27 files, 0 broken links |
+| Code Quality | A? | 95 | 0 content issues in 0.70K lines |
 | Architecture | A? | 95 | 26/26 week files linked from README; prev/next/overview nav and 7 anchors all resolve |
-| Test Coverage | F? | 0 | No automated lint or link check (no CI, no tooling config beyond `.markdownlint.json`) |
+| Test Coverage | C?* | 70 | `docs-checks.yml` runs lint and link check on every push, but it has not run on GitHub yet (branch is unpushed) |
 | Dead Code | A? | 100 | 0 orphaned files, 0 TODO/FIXME/TBD markers |
 | API Surface | A~? | 92 | All 26 week files follow the same template (Done, Goal, Exercises, Deliverable) |
-| Security | A? | 96 | No dependencies, no hardcoded secrets (4 grep hits are prose about secrets) |
-| Documentation | B? | 88 | Comprehensive README; no LICENSE; week files are terse (22 lines each) |
+| Security | A? | 96 | No dependencies, no hardcoded secrets; workflow has `contents: read` only |
+| Documentation | A? | 90 | Comprehensive README, MIT LICENSE present; week files stay terse (22 lines each) |
 
-### Overall GPA: 2.5 — Fair
+### Overall GPA: 3.8 — Excellent
 
-> Fair — functional but accumulating tech debt. The content is well organised; the gap is tooling, not substance.
+> Excellent — production-ready, well-maintained. Caveat: docs-only repo, every grade is a fallback estimate.
+
+### Trend
+
+Compared with the previous audit on the same date (GPA 3.0, Good):
+
+| Dimension | Previous | Current | Change |
+|-----------|----------|---------|--------|
+| Build Health | F? | A? | Improved: MD013 disabled in `.markdownlint.json`, README table separator fixed, 161 findings to 0 |
+| Code Quality | A? | A? | No change |
+| Architecture | A? | A? | No change |
+| Test Coverage | F? | C?* | Improved: CI workflow added (not yet run remotely) |
+| Dead Code | A? | A? | No change |
+| API Surface | A~? | A~? | No change |
+| Security | A? | A? | No change |
+| Documentation | A? | A? | No change |
 
 ### Priority Recommendations
 
-1. **Build Health (F → C):** Resolve the lint noise.
-   - 151 of 161 findings are MD013 (80-column limit) on prose lines. Either set `"MD013": false` in `.markdownlint.json` (it already disables MD036 and MD041), or accept and wrap. Disabling leaves 10 findings.
-   - `README.md:20` — MD060 table pipe spacing (8 findings, one header row).
-   - `README.md:92` — MD026 trailing `...` in heading.
-   - `weeks/week-06-processes-and-signals.md:13` — MD033, `<pid>` parsed as HTML.
+1. **Test Coverage (C → A):** Prove the CI works.
+   - Push `fix/health-audit-2026-11-18` and confirm both jobs in `.github/workflows/docs-checks.yml` pass. The `lychee` job in particular has never run (not installed locally).
+   - Optionally pin the actions to commit SHAs instead of `@v4` / `@v2`.
    Estimated effort: 15 minutes
 
-2. **Code Quality (D → A):** Fix the two real content issues.
-   - `weeks/week-06-processes-and-signals.md:13` — write `` `/proc/<pid>` `` in code formatting; as written `<pid>` disappears when rendered, so the reader sees `/proc/`.
-   - `README.md:92` — rename the heading to drop the trailing `...` (this also fixes the `#` anchor if you ever link to it).
-   Estimated effort: 5 minutes
-
-3. **Test Coverage (F → C):** Add automated checks.
-   - Run `markdownlint-cli2` and a link checker (e.g. `lychee`) in a pipeline or pre-commit hook. This is a nice small exercise for Weeks 21-22 too.
-   Estimated effort: 1 hour
-
-4. **Documentation (B → A):** Add a `LICENSE` file (or state the repo is private). Optionally add 2-3 reference links or example commands per week file.
+2. **Documentation (A, optional polish):** Add 2-3 reference links or example commands per week file.
    Estimated effort: 1-2 hours
 
 ### Conclusion
 
-The curriculum is structurally sound: every week file is linked, uniformly templated, and navigation is fully consistent. The low grades come from missing tooling: lint is run with a strict default (80 columns) that the prose does not follow, and nothing checks the repo automatically. Settling the MD013 question and fixing the `<pid>` rendering bug is the quickest win.
+Every finding from the first audit is resolved: lint is clean, the rendering bug is fixed, a LICENSE exists and a CI workflow now guards the repo, taking the GPA from 2.5 to 3.8. The one open item is verification: the workflow has not run on GitHub, so push the branch and confirm both jobs are green.

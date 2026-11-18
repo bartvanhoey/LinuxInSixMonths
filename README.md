@@ -1,3 +1,5 @@
+[![Docs checks](https://github.com/bartvanhoey/LinuxInSixMonths/actions/workflows/docs-checks.yml/badge.svg)](https://github.com/bartvanhoey/LinuxInSixMonths/actions/workflows/docs-checks.yml)
+
 # Linux in 6 Months
 
 A 26-week plan for the senior .NET developer: from daily WSL2 use to running, automating and monitoring production servers.

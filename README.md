@@ -4,9 +4,9 @@ A 26-week plan for the senior .NET developer: from daily WSL2 use to running, au
 
 ## Health Audit
 
-**Last assessed:** 2026-11-18 | **Overall:** 2.5 — Fair
+**Last assessed:** 2026-11-18 | **Overall:** 3.0 — Good
 
-Build F? · Quality D? · Architecture A? · Tests F? · Dead Code A? · API A~? · Security A? · Docs B?
+Build F? · Quality A? · Architecture A? · Tests F? · Dead Code A? · API A~? · Security A? · Docs A?
 
 **Scope:** Docs-only repository; Fallback checks (markdownlint, link and structure checks).
 
@@ -27,7 +27,7 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 ## Overview
 
 | Phase | Focus | Weeks | What you get |
-|---|---|---|---|
+| --- | --- | --- | --- |
 | [Phase 1](#phase-1-shell-fluency) | **Shell fluency** | Weeks 1-4 | Live in WSL2 daily; pipes, text tools, SSH, vim/tmux. |
 | [Phase 2](#phase-2-linux-fundamentals) | **Linux fundamentals** | Weeks 5-8 | Permissions, processes, systemd, packages, storage. |
 | [Phase 3](#phase-3-run-a-real-server) | **Run a real server** | Weeks 9-12 | VPS from scratch: hardening, Blazor on Kestrel, nginx, TLS, break and fix. |

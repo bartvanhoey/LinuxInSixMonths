@@ -17,6 +17,8 @@
 
 **Deliverable:** A repo with roles that fully provisions the VPS stack.
 
+**My notes:** [notes/week-24-ansible-ii.md](../notes/week-24-ansible-ii.md)
+
 ---
 
 [← Week 23](week-23-ansible-i.md) | [Overview](../README.md) | [Week 25 →](week-25-monitoring-and-upkeep.md)

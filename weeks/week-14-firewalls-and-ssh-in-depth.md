@@ -17,6 +17,8 @@
 
 **Deliverable:** A documented tunnel setup that exposes the database only to your laptop.
 
+**My notes:** [notes/week-14-firewalls-and-ssh-in-depth.md](../notes/week-14-firewalls-and-ssh-in-depth.md)
+
 ---
 
 [← Week 13](week-13-networking-fundamentals.md) | [Overview](../README.md) | [Week 15 →](week-15-bash-scripting-i.md)

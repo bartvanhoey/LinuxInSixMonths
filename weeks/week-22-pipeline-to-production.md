@@ -17,6 +17,8 @@
 
 **Deliverable:** One push triggers a build, test and zero-touch deploy to your VPS.
 
+**My notes:** [notes/week-22-pipeline-to-production.md](../notes/week-22-pipeline-to-production.md)
+
 ---
 
 [← Week 21](week-21-azure-devops-agent-on-linux.md) | [Overview](../README.md) | [Week 23 →](week-23-ansible-i.md)

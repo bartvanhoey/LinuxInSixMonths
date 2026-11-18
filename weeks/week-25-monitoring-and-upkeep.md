@@ -17,6 +17,8 @@
 
 **Deliverable:** A dashboard and at least three working alerts; a successful restore test.
 
+**My notes:** [notes/week-25-monitoring-and-upkeep.md](../notes/week-25-monitoring-and-upkeep.md)
+
 ---
 
 [← Week 24](week-24-ansible-ii.md) | [Overview](../README.md) | [Week 26 →](week-26-capstone-and-review.md)

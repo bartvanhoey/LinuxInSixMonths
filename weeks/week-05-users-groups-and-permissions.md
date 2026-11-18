@@ -17,6 +17,8 @@
 
 **Deliverable:** A shared directory setup that works for two users, documented with the exact commands.
 
+**My notes:** [notes/week-05-users-groups-and-permissions.md](../notes/week-05-users-groups-and-permissions.md)
+
 ---
 
 [← Week 4](week-04-editors-tmux-and-ssh-basics.md) | [Overview](../README.md) | [Week 6 →](week-06-processes-and-signals.md)

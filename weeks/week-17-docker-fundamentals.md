@@ -17,6 +17,8 @@
 
 **Deliverable:** A short explainer in your own words: 'what is a container, really'.
 
+**My notes:** [notes/week-17-docker-fundamentals.md](../notes/week-17-docker-fundamentals.md)
+
 ---
 
 [← Week 16](week-16-bash-ii-and-a-troubleshooting-method.md) | [Overview](../README.md) | [Week 18 →](week-18-dockerfiles-for-net.md)

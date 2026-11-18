@@ -17,6 +17,8 @@
 
 **Deliverable:** A .NET worker that logs a clean shutdown on SIGTERM, with notes on what you observed.
 
+**My notes:** [notes/week-06-processes-and-signals.md](../notes/week-06-processes-and-signals.md)
+
 ---
 
 [← Week 5](week-05-users-groups-and-permissions.md) | [Overview](../README.md) | [Week 7 →](week-07-systemd-and-journald.md)

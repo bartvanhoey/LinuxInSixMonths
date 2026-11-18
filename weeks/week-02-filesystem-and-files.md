@@ -17,6 +17,8 @@
 
 **Deliverable:** A personal cheat sheet (Markdown) in a git repo; add to it all 6 months.
 
+**My notes:** [notes/week-02-filesystem-and-files.md](../notes/week-02-filesystem-and-files.md)
+
 ---
 
 [← Week 1](week-01-wsl2-as-your-daily-driver.md) | [Overview](../README.md) | [Week 3 →](week-03-pipes-and-text-tools.md)

@@ -17,6 +17,8 @@
 
 **Deliverable:** Phase 2 checkpoint: a self-test where you explain each topic from memory without notes.
 
+**My notes:** [notes/week-08-packages-and-storage.md](../notes/week-08-packages-and-storage.md)
+
 ---
 
 [← Week 7](week-07-systemd-and-journald.md) | [Overview](../README.md) | [Week 9 →](week-09-provision-and-harden-a-vps.md)

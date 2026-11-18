@@ -17,6 +17,8 @@
 
 **Deliverable:** A one-page 'what happens when I open my site' write-up with commands for each step.
 
+**My notes:** [notes/week-13-networking-fundamentals.md](../notes/week-13-networking-fundamentals.md)
+
 ---
 
 [← Week 12](week-12-break-it-on-purpose.md) | [Overview](../README.md) | [Week 14 →](week-14-firewalls-and-ssh-in-depth.md)

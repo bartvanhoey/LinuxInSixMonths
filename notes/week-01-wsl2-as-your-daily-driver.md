@@ -215,6 +215,21 @@ Common `rm` applications:
 
 > **Warning:** Linux has no recycle bin. `rm` deletes permanently, and `rm -rf` does so without asking. Check the wildcard or path with `ls` first.
 
+## Problems encountered
+
+```bash
+
+bartvanhoey@NB2407:/home/playground$ mkdir dir1 dir2
+mkdir: cannot create directory ‘dir1’: Permission denied
+mkdir: cannot create directory ‘dir2’: Permission denied
+
+# /home/playground is owned by root with mode 755, so I can't create anything in it.
+
+# fix
+# Take ownership of the directory with chown, then mkdir dir1 dir2 will work.
+sudo chown -R $USER:$USER /home/playground
+```
+
 ## Deliverable
 
 > A working WSL dev setup and a short note of what felt different from Windows.

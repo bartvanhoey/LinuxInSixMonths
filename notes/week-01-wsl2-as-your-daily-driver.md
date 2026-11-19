@@ -87,6 +87,22 @@ The line above can be broken down as follows:
 
 `rwxrwxrwx` is mode `777`: anyone can read, write and execute the file.
 
+### Explanation of ls -li output
+
+A hard link is an extra name for the same data. A file consists of a name and a data part. The system stores the data in a chain of disk blocks, described by an inode, and the name points to that inode. Every hard link to a file therefore points to the same inode, and so to the same contents.
+
+Use the `-i` option of `ls` to show the inode number in front of each entry:
+
+```bash
+username@hostname:/$ ls -li
+total 16
+45378 drwxr-xr-x 2 bartvanhoey bartvanhoey 4096 Nov 19 19:28 dir1
+45386 drwxr-xr-x 2 bartvanhoey bartvanhoey 4096 Nov 19 19:28 dir2
+45342 -rw-r--r-- 4 bartvanhoey bartvanhoey 1482 Nov 19 18:07 fun
+45342 -rw-r--r-- 4 bartvanhoey bartvanhoey 1482 Nov 19 18:07 fun-hard
+ 2963 lrwxrwxrwx 1 bartvanhoey bartvanhoey    3 Nov 19 19:28 fun-sym -> fun
+```
+
 _Moved to [Week 2, Exercise 1](week-02-filesystem-and-files.md#exercise-1): Directories of Linux Systems._
 
 _Moved to [Week 2, Exercise 2](week-02-filesystem-and-files.md#exercise-2): Example of a symbolic link._

@@ -20,6 +20,29 @@ _Commands, results, what surprised me._
 
 > Do one full working day of git, dotnet build and dotnet test only from the WSL shell.
 
+### Problem: Could not read from remote repository
+
+```bash
+usernameB@hostname MINGW64 /c/Personal/MyGitHubRepos/LinuxInSixMonths (main)
+$ git pull
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+Please make sure you have the correct access rights and the repository exists.
+
+# Cause
+# the remote uses SSH (git@github.com:bartvanhoey/LinuxInSixMonths.git), but ~/.ssh has  no GitHub key. There is no default id_ed25519 or id_rsa, no github.com entry in ~/.ssh/config, and no ssh-agent running. 
+
+# fix 
+# Switch to HTTPS instead of SSH for the remote, and use gh auth setup-git to use the GitHub token for authentication.
+git remote set-url origin https://github.com/bartvanhoey/LinuxInSixMonths.git
+gh auth setup-git
+git pull
+
+# gh auth setup-git makes git use the gh token for HTTPS, so there is no password prompt.
+
+# To keep SSH instead of HTTPS , you would need to generate a key with ssh-keygen -t ed25519 and add the public key at github.com/settings/keys. 
+```
+
 _Commands, results, what surprised me._
 
 ## Exercise 4

@@ -94,7 +94,7 @@ A hard link is an extra name for the same data. A file consists of a name and a 
 Use the `-i` option of `ls` to show the inode number in front of each entry:
 
 ```bash
-username@hostname:/$ ls -li
+username@hostname:~/playground$ ls -li
 total 16
 45378 drwxr-xr-x 2 bartvanhoey bartvanhoey 4096 Nov 19 19:28 dir1
 45386 drwxr-xr-x 2 bartvanhoey bartvanhoey 4096 Nov 19 19:28 dir2

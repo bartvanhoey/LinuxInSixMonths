@@ -75,7 +75,30 @@ Files: Windows drives are mounted at /mnt/c/. For better performance, keep proje
 
 > Keep repos in the Linux filesystem (~/src), not under /mnt/c. Notice the speed difference.
 
-_Commands, results, what surprised me._
+```bash
+# Linux filesystem
+username@NB2407:~$ time git -C ~/src/MyGitHubRepos/LinuxInSixMonths status
+
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# nothing to commit, working tree clean
+
+# real    0m0.002s
+# user    0m0.002s
+# sys     0m0.000s
+
+# Same repo cloned on the Windows side
+username@hostname:~$ time git -C /mnt/c/Personal/MyGitHubRepos/LinuxInSixMonths status
+# On branch main
+# Your branch is up to date with 'origin/main'.
+
+# nothing to commit, working tree clean
+
+# real    0m0.996s
+# user    0m0.016s
+# sys     0m0.000s
+```
 
 ## Exercise 3
 
@@ -319,7 +342,7 @@ Common `rm` applications:
 
 ```bash
 
-bartvanhoey@NB2407:/home/playground$ mkdir dir1 dir2
+username@hostname:/home/playground$ mkdir dir1 dir2
 mkdir: cannot create directory ‘dir1’: Permission denied
 mkdir: cannot create directory ‘dir2’: Permission denied
 

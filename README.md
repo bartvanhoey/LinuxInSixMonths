@@ -116,6 +116,16 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 - [ ] Provision and configure servers with Ansible roles and Vault.
 - [ ] Monitor a service with Prometheus and Grafana, alert on problems, and restore from backup.
 
+## Lint Markdown before pushing
+
+The repo has a `pre-push` hook in `.githooks/` that runs markdownlint on the same files as the CI check. Git does not use it automatically; enable it once per clone (requires Node.js):
+
+```bash
+git config core.hooksPath .githooks
+```
+
+To run the check by hand: `.githooks/pre-push`.
+
 ## Resources
 
 - The Linux Command Line by William Shotts (free online) - for Phases 1-2.

@@ -8,6 +8,8 @@
 
 > Install WSL2 with Ubuntu LTS and Windows Terminal; install git and the .NET SDK inside WSL.
 
+**Status:** Done
+
 ### Quick setup (recommended)
 
 1. Open PowerShell as Administrator.

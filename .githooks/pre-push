@@ -1,0 +1,3 @@
+#!/bin/sh
+# Same file set as .github/workflows/docs-checks.yml
+npx --yes markdownlint-cli2 "README.md" "weeks/*.md" "notes/**/*.md" || exit 1

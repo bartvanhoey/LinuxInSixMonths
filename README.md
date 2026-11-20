@@ -2,7 +2,7 @@
 
 # Linux in 6 Months
 
-A 26-week plan for the senior .NET developer: from daily WSL2 use to running, automating and monitoring production servers.
+A 26-week plan for .NET developers: from daily WSL2 use to running, automating and monitoring production servers.
 
 ## Health Audit
 

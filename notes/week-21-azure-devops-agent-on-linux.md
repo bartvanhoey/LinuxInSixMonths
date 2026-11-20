@@ -4,6 +4,8 @@
 
 **Status:** Not started
 
+**Related:** [Clone an Azure DevOps repo over SSH in WSL](azure-devops-ssh-clone-in-wsl.md)
+
 ## Exercise 1
 
 > Create a Linux VM (or use a spare machine); install and configure the agent (config.sh, svc.sh install).

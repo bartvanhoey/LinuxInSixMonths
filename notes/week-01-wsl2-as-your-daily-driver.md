@@ -11,7 +11,7 @@
 ### Quick setup (recommended)
 
 1. Open PowerShell as Administrator.
-2. Run `wsl --install` 
+2. Run `wsl --install`
    This enables the required Windows features, installs the WSL2 kernel, and installs Ubuntu by default.
 3. Reboot when prompted.
 4. After the reboot, Ubuntu launches and asks you to create a Linux username and password.

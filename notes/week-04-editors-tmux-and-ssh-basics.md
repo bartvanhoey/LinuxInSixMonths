@@ -22,6 +22,12 @@ _Commands, results, what surprised me._
 
 _Commands, results, what surprised me._
 
+### `git clone` fails with `Permission denied (publickey)`
+
+A fresh WSL install has no SSH key, because it does not share `~/.ssh` with Windows. GitHub rejects the clone until you generate an ed25519 key and add its public half to your account. To use more than one GitHub account, give each account its own key and pick it with a host alias in `~/.ssh/config`.
+
+Step by step: [Clone from GitHub over SSH in WSL (Permission denied (publickey))](github-ssh-keys-and-multiple-accounts-in-wsl.md).
+
 ## Exercise 4
 
 > Create a dotfiles repo (.bashrc, aliases, .vimrc, .tmux.conf).

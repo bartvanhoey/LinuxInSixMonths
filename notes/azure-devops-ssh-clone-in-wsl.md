@@ -29,7 +29,7 @@ This avoids algorithm errors:
 nano ~/.ssh/config
 ```
 
-```
+```bash
 Host ssh.dev.azure.com
     HostName ssh.dev.azure.com
     User git

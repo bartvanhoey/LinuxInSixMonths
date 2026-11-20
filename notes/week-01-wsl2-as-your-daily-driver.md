@@ -8,9 +8,70 @@
 
 > Install WSL2 with Ubuntu LTS and Windows Terminal; install git and the .NET SDK inside WSL.
 
-_Commands, results, what surprised me._
+### Quick setup (recommended)
+
+1. Open PowerShell as Administrator.
+2. Run `wsl --install` 
+   This enables the required Windows features, installs the WSL2 kernel, and installs Ubuntu by default.
+3. Reboot when prompted.
+4. After the reboot, Ubuntu launches and asks you to create a Linux username and password.
+
+After the installation, you can check the WSL version with:
+
+```bash
+wsl --list --verbose
+```
+
+Update Linux after with:
+
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+### systemd in WSL
+
+systemd is the init system and service manager on most modern Linux distros. It is the first process that starts at boot (PID 1) and it starts and manages background services such as SSH, databases, web servers and Docker. You talk to it with `systemctl`:
+
+```bash
+sudo systemctl start postgresql # start a service now
+sudo systemctl enable nginx # start a service automatically at boot
+systemctl status ssh # show the state of a service
+```
+
+WSL did not originally boot like a normal Linux machine, so `systemctl` failed with _System has not been booted with systemd as init system_. Recent WSL versions support systemd, but it may need to be switched on.
+
+First check whether it is already running (newer Ubuntu installs often have it enabled):
+
+```bash
+systemctl is-system-running # prints running (or degraded, which is usually fine)
+```
+
+If not, enable it:
+
+1. Edit `/etc/wsl.conf` inside the distro (create the file if it does not exist):
+
+   ```bash
+   sudo nano /etc/wsl.conf
+   ```
+
+   ```ini
+   [boot]
+   systemd=true
+   ```
+
+2. From PowerShell (not inside WSL), shut WSL down so the setting takes effect, then open the distro again:
+
+   ```powershell
+   wsl --shutdown
+   ```
+
+3. Verify with `systemctl is-system-running`.
+
+You only need systemd if you want to run services the normal Linux way. It becomes important from [Week 7](week-07-systemd-and-journald.md) onwards.
 
 ## Exercise 2
+
+Files: Windows drives are mounted at /mnt/c/. For better performance, keep projects in the Linux filesystem (~/src) rather than /mnt/c/.
 
 > Keep repos in the Linux filesystem (~/src), not under /mnt/c. Notice the speed difference.
 
@@ -30,9 +91,9 @@ fatal: Could not read from remote repository.
 Please make sure you have the correct access rights and the repository exists.
 
 # Cause
-# the remote uses SSH (git@github.com:bartvanhoey/LinuxInSixMonths.git), but ~/.ssh has  no GitHub key. There is no default id_ed25519 or id_rsa, no github.com entry in ~/.ssh/config, and no ssh-agent running. 
+# the remote uses SSH (git@github.com:bartvanhoey/LinuxInSixMonths.git), but ~/.ssh has  no GitHub key. There is no default id_ed25519 or id_rsa, no github.com entry in ~/.ssh/config, and no ssh-agent running.
 
-# fix 
+# fix
 # Switch to HTTPS instead of SSH for the remote, and use gh auth setup-git to use the GitHub token for authentication.
 git remote set-url origin https://github.com/bartvanhoey/LinuxInSixMonths.git
 gh auth setup-git
@@ -40,7 +101,7 @@ git pull
 
 # gh auth setup-git makes git use the gh token for HTTPS, so there is no password prompt.
 
-# To keep SSH instead of HTTPS , you would need to generate a key with ssh-keygen -t ed25519 and add the public key at github.com/settings/keys. 
+# To keep SSH instead of HTTPS , you would need to generate a key with ssh-keygen -t ed25519 and add the public key at github.com/settings/keys.
 ```
 
 _Commands, results, what surprised me._
@@ -95,18 +156,18 @@ less filename # view the contents of filename one page at a time
 
 The line above can be broken down as follows:
 
-| Field | Meaning |
-| --- | --- |
-| `-` | File type: `-` regular file, `d` directory, `l` symbolic link |
-| `rwx` | Owner permissions: read, write, execute |
-| `rwx` | Group permissions: read, write, execute |
-| `rwx` | Permissions for everyone else: read, write, execute |
-| `1` | Number of hard links |
-| `root` | Owner of the file |
-| `root` | Group of the file |
-| `2260248` | Size in bytes (about 2.2 MB) |
-| `Nov  9  2024` | Last modification date |
-| `init` | File name |
+| Field          | Meaning                                                       |
+| -------------- | ------------------------------------------------------------- |
+| `-`            | File type: `-` regular file, `d` directory, `l` symbolic link |
+| `rwx`          | Owner permissions: read, write, execute                       |
+| `rwx`          | Group permissions: read, write, execute                       |
+| `rwx`          | Permissions for everyone else: read, write, execute           |
+| `1`            | Number of hard links                                          |
+| `root`         | Owner of the file                                             |
+| `root`         | Group of the file                                             |
+| `2260248`      | Size in bytes (about 2.2 MB)                                  |
+| `Nov  9  2024` | Last modification date                                        |
+| `init`         | File name                                                     |
 
 `rwxrwxrwx` is mode `777`: anyone can read, write and execute the file.
 
@@ -149,18 +210,18 @@ cp -u *.html destination # Copy all .html files to destination if they are newer
 
 The shell expands wildcards (globs) into matching file names before the command runs.
 
-| Wildcard | Matches |
-| --- | --- |
-| `*` | Any characters, including none: `*.html`, `report*` |
-| `?` | Exactly one character: `file?.txt` matches `file1.txt`, not `file10.txt` |
-| `[abc]` | Any one character from the set: `file[123].txt` |
-| `[!abc]` | Any one character not in the set: `file[!0-9].txt` |
-| `[a-z]` | Any one character in the range: `[A-Z]*` matches names starting with an uppercase letter |
-| `[[:alpha:]]` | Any alphabetic character (POSIX class) |
-| `[[:digit:]]` | Any digit |
-| `[[:upper:]]` | Any uppercase letter |
-| `[[:lower:]]` | Any lowercase letter |
-| `[[:alnum:]]` | Any letter or digit |
+| Wildcard      | Matches                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------- |
+| `*`           | Any characters, including none: `*.html`, `report*`                                      |
+| `?`           | Exactly one character: `file?.txt` matches `file1.txt`, not `file10.txt`                 |
+| `[abc]`       | Any one character from the set: `file[123].txt`                                          |
+| `[!abc]`      | Any one character not in the set: `file[!0-9].txt`                                       |
+| `[a-z]`       | Any one character in the range: `[A-Z]*` matches names starting with an uppercase letter |
+| `[[:alpha:]]` | Any alphabetic character (POSIX class)                                                   |
+| `[[:digit:]]` | Any digit                                                                                |
+| `[[:upper:]]` | Any uppercase letter                                                                     |
+| `[[:lower:]]` | Any lowercase letter                                                                     |
+| `[[:alnum:]]` | Any letter or digit                                                                      |
 
 ```bash
 ls *.txt # all files ending in .txt
@@ -186,23 +247,23 @@ ls *[![:digit:]] # all files not ending with a digit
 
 Common `cp` options:
 
-| Option | Long option | Meaning |
-| --- | --- | --- |
-| `-a` | `--archive` | Copy files and directories with all attributes, including ownership and permissions. Normally copies take the default attributes of the user doing the copy. |
-| `-i` | `--interactive` | Prompt before overwriting an existing file. Without it, `cp` overwrites silently. |
-| `-r` | `--recursive` | Copy directories and their contents. Required for directories (or use `-a`). |
-| `-u` | `--update` | Copy only files that do not exist in the destination or are newer than the existing ones. Skips files that need no copy. |
-| `-v` | `--verbose` | Show informative messages while copying. |
+| Option | Long option     | Meaning                                                                                                                                                      |
+| ------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `-a`   | `--archive`     | Copy files and directories with all attributes, including ownership and permissions. Normally copies take the default attributes of the user doing the copy. |
+| `-i`   | `--interactive` | Prompt before overwriting an existing file. Without it, `cp` overwrites silently.                                                                            |
+| `-r`   | `--recursive`   | Copy directories and their contents. Required for directories (or use `-a`).                                                                                 |
+| `-u`   | `--update`      | Copy only files that do not exist in the destination or are newer than the existing ones. Skips files that need no copy.                                     |
+| `-v`   | `--verbose`     | Show informative messages while copying.                                                                                                                     |
 
 Common `cp` applications:
 
-| Command | Result |
-| --- | --- |
-| `cp file1 file2` | Copy `file1` to `file2`. If `file2` exists, it is overwritten; otherwise it is created. |
-| `cp -i file1 file2` | Same, but prompt before overwriting `file2`. |
-| `cp file1 file2 dir1` | Copy `file1` and `file2` into `dir1`. `dir1` must already exist. |
-| `cp dir1/* dir2` | Copy all files in `dir1` into `dir2` (wildcard). `dir2` must already exist. |
-| `cp -r dir1 dir2` | If `dir2` does not exist, create it with the contents of `dir1`. If `dir2` exists, copy `dir1` (and its contents) into `dir2`. |
+| Command               | Result                                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `cp file1 file2`      | Copy `file1` to `file2`. If `file2` exists, it is overwritten; otherwise it is created.                                        |
+| `cp -i file1 file2`   | Same, but prompt before overwriting `file2`.                                                                                   |
+| `cp file1 file2 dir1` | Copy `file1` and `file2` into `dir1`. `dir1` must already exist.                                                               |
+| `cp dir1/* dir2`      | Copy all files in `dir1` into `dir2` (wildcard). `dir2` must already exist.                                                    |
+| `cp -r dir1 dir2`     | If `dir2` does not exist, create it with the contents of `dir1`. If `dir2` exists, copy `dir1` (and its contents) into `dir2`. |
 
 #### mv - Move or rename files and directories
 
@@ -213,20 +274,20 @@ Common `cp` applications:
 
 Common `mv` options (same meaning as for `cp`):
 
-| Option | Long option | Meaning |
-| --- | --- | --- |
-| `-i` | `--interactive` | Prompt before overwriting an existing file. Without it, `mv` overwrites silently. |
-| `-u` | `--update` | Move only files that do not exist in the destination or are newer than the existing ones. |
-| `-v` | `--verbose` | Show informative messages while moving. |
+| Option | Long option     | Meaning                                                                                   |
+| ------ | --------------- | ----------------------------------------------------------------------------------------- |
+| `-i`   | `--interactive` | Prompt before overwriting an existing file. Without it, `mv` overwrites silently.         |
+| `-u`   | `--update`      | Move only files that do not exist in the destination or are newer than the existing ones. |
+| `-v`   | `--verbose`     | Show informative messages while moving.                                                   |
 
 Common `mv` applications:
 
-| Command | Result |
-| --- | --- |
-| `mv file1 file2` | Move (rename) `file1` to `file2`. If `file2` exists, it is replaced. Either way, `file1` no longer exists. |
-| `mv -i file1 file2` | Same, but prompt before replacing `file2`. |
-| `mv file1 file2 dir1` | Move `file1` and `file2` into `dir1`. `dir1` must already exist. |
-| `mv dir1 dir2` | If `dir2` does not exist, rename `dir1` to `dir2`. If `dir2` exists, move `dir1` (and its contents) into `dir2`. |
+| Command               | Result                                                                                                           |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `mv file1 file2`      | Move (rename) `file1` to `file2`. If `file2` exists, it is replaced. Either way, `file1` no longer exists.       |
+| `mv -i file1 file2`   | Same, but prompt before replacing `file2`.                                                                       |
+| `mv file1 file2 dir1` | Move `file1` and `file2` into `dir1`. `dir1` must already exist.                                                 |
+| `mv dir1 dir2`        | If `dir2` does not exist, rename `dir1` to `dir2`. If `dir2` exists, move `dir1` (and its contents) into `dir2`. |
 
 #### rm - Remove files and directories
 
@@ -237,19 +298,19 @@ Common `mv` applications:
 
 Common `rm` options:
 
-| Option | Long option | Meaning |
-| --- | --- | --- |
-| `-i` | `--interactive` | Prompt before deleting a file. Without it, `rm` deletes silently. |
-| `-r` | `--recursive` | Delete directories and everything inside them, including subdirectories. Required to delete a directory. |
-| `-f` | `--force` | Ignore nonexistent files and never prompt. Overrides `--interactive`. |
-| `-v` | `--verbose` | Show informative messages while deleting. |
+| Option | Long option     | Meaning                                                                                                  |
+| ------ | --------------- | -------------------------------------------------------------------------------------------------------- |
+| `-i`   | `--interactive` | Prompt before deleting a file. Without it, `rm` deletes silently.                                        |
+| `-r`   | `--recursive`   | Delete directories and everything inside them, including subdirectories. Required to delete a directory. |
+| `-f`   | `--force`       | Ignore nonexistent files and never prompt. Overrides `--interactive`.                                    |
+| `-v`   | `--verbose`     | Show informative messages while deleting.                                                                |
 
 Common `rm` applications:
 
-| Command | Result |
-| --- | --- |
-| `rm file1` | Delete `file1` silently. |
-| `rm -i file1` | Same, but prompt for confirmation first. |
+| Command            | Result                                                   |
+| ------------------ | -------------------------------------------------------- |
+| `rm file1`         | Delete `file1` silently.                                 |
+| `rm -i file1`      | Same, but prompt for confirmation first.                 |
 | `rm -r file1 dir1` | Delete `file1`, and delete `dir1` with all its contents. |
 
 > **Warning:** Linux has no recycle bin. `rm` deletes permanently, and `rm -rf` does so without asking. Check the wildcard or path with `ls` first.
@@ -273,4 +334,6 @@ sudo chown -R $USER:$USER /home/playground
 
 > A working WSL dev setup and a short note of what felt different from Windows.
 
-_Write-up._
+Tip: **Visual Studio Code** can be installed in Windows and used to edit files in WSL. In VS Code, open the extensions panel (Ctrl+Shift+X) and search for WSL (publisher Microsoft).
+
+The first time when you run `code .`, VS Code installs a small "VS Code Server" inside your distro. After that, the window opens with a green WSL: Ubuntu label in the bottom-left corner. It will automatically detect the WSL environment and use the Linux toolchain for building and debugging. This allows you to have a seamless development experience while leveraging the power of Linux within Windows.

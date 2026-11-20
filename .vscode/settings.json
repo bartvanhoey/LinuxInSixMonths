@@ -1,14 +1,23 @@
 {
   "cSpell.words": [
+    "Blazor",
     "distros",
+    "Dockerfiles",
     "drwxr",
     "drwxrwxrwt",
+    "explainshell",
+    "Geerling",
     "Hostkey",
+    "LFCS",
     "libc",
     "lrwxrwxrwx",
+    "mortems",
+    "pipefail",
     "publickey",
     "repointing",
     "rwxrwxrwx",
-    "Shotts"
+    "shellcheck",
+    "Shotts",
+    "tcpdump"
   ]
 }

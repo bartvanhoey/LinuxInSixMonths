@@ -28,6 +28,16 @@ Update Linux after with:
 sudo apt update && sudo apt upgrade -y
 ```
 
+### Install the .NET 10 SDK
+
+Ubuntu provides the .NET SDK in its own package feed, so no Microsoft package repository is needed:
+
+```bash
+sudo apt update
+sudo apt install -y dotnet-sdk-10.0
+dotnet --version # verify the installation, prints 10.0.x
+```
+
 ### systemd in WSL
 
 systemd is the init system and service manager on most modern Linux distros. It is the first process that starts at boot (PID 1) and it starts and manages background services such as SSH, databases, web servers and Docker. You talk to it with `systemctl`:
@@ -340,6 +350,8 @@ Common `rm` applications:
 
 ## Problems encountered
 
+### `mkdir` fails with "Permission denied" in `/home/playground`
+
 ```bash
 
 username@hostname:/home/playground$ mkdir dir1 dir2
@@ -352,6 +364,12 @@ mkdir: cannot create directory ‘dir2’: Permission denied
 # Take ownership of the directory with chown, then mkdir dir1 dir2 will work.
 sudo chown -R $USER:$USER /home/playground
 ```
+
+### `dotnet restore` fails with 401 on a private NuGet feed
+
+A project that restores fine on Windows fails in WSL with `error NU1301 ... 401 (Unauthorized)` on a private Azure DevOps Server feed, even though the personal access token (PAT) is valid. The server offers `Negotiate` and `NTLM` next to `Basic`. On Linux, NuGet tries those with the PAT and does not fall back to Basic, while curl sends Basic right away. The fix is the Azure Artifacts Credential Provider with the PAT in `VSS_NUGET_EXTERNAL_FEED_ENDPOINTS`.
+
+Step by step: [Restore from a private on-prem NuGet feed in WSL (401 Unauthorized)](nuget-private-feed-401-in-wsl.md).
 
 ## Deliverable
 

@@ -373,6 +373,45 @@ A project that restores fine on Windows fails in WSL with `error NU1301 ... 401 
 
 Step by step: [Restore from a private on-prem NuGet feed in WSL (401 Unauthorized)](nuget-private-feed-401-in-wsl.md).
 
+### herdr comes back without my Claude Code session
+
+After a Windows shutdown or `wsl --shutdown`, herdr restores the workspaces and tabs, but the `claude` tab is an empty shell. The WSL VM stopped, and every process stopped with it. herdr restores only the layout, not the running programs. The conversation is still saved in `~/.claude/projects/`. Run `claude --continue` (alias `clc`, see below) to reopen it, or `claude --resume` to pick an older one.
+
+Details: [herdr "loses" Claude Code sessions in WSL](herdr-loses-claude-sessions-in-wsl.md).
+
+### Alias `clc` to resume Claude Code
+
+An alias is a short name for a longer command. `clc` runs `claude --continue`, which reopens the most recent Claude Code conversation in the current folder.
+
+1. Check that the name is not already a command:
+
+   ```bash
+   type clc    # "bash: type: clc: not found" means the name is free
+   ```
+
+   I first wanted `cc`, but that is the C compiler (`/usr/bin/cc`) and the alias would hide it.
+
+2. Add the alias to `~/.bash_aliases`. The default Ubuntu `~/.bashrc` loads this file if it exists, so you don't have to edit `~/.bashrc` itself:
+
+   ```bash
+   echo "alias clc='claude --continue'" >> ~/.bash_aliases
+   ```
+
+3. Load it in the current shell (new terminals load it automatically):
+
+   ```bash
+   source ~/.bashrc
+   ```
+
+4. Check it:
+
+   ```bash
+   type clc    # clc is aliased to `claude --continue'
+   alias       # list all aliases
+   ```
+
+To remove the alias in the current shell, run `unalias clc`. To remove it for good, delete the line from `~/.bash_aliases`.
+
 ## Deliverable
 
 > A working WSL dev setup and a short note of what felt different from Windows.

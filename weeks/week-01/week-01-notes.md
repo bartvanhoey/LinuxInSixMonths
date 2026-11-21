@@ -458,6 +458,14 @@ Details: [See git changes while working in Claude Code](claude-code-status-line-
 
 > A working WSL dev setup and a short note of what felt different from Windows.
 
+What felt different from Windows:
+
+- **Where the repo lives matters.** `git status` took 0.002 s in `~/src` and about 1 s on the same repo under `/mnt/c` (see [Exercise 2](#exercise-2)). Repos belong in the Linux filesystem.
+- **Credentials don't come along.** The Windows side had working git and NuGet logins; WSL had none. git needed an SSH key or `gh auth setup-git`, and the private NuGet feed needed the Azure Artifacts Credential Provider (see [Exercise 3](#exercise-3)).
+- **Ownership and permissions are enforced.** `mkdir` in a root-owned directory fails with "Permission denied" until you take ownership with `chown` or use `sudo`.
+- **Everything is a command.** Instead of clicking through menus, you combine small tools (`ls`, `find`, `cat`, `tr`) and look them up with `type`, `man` and `help`.
+- **Tooling has its own quirks.** Session managers and git hooks behave differently in WSL (see [Problems encountered](#problems-encountered)).
+
 Tip: **Visual Studio Code** can be installed in Windows and used to edit files in WSL. In VS Code, open the extensions panel (Ctrl+Shift+X) and search for WSL (publisher Microsoft).
 
 The first time when you run `code .`, VS Code installs a small "VS Code Server" inside your distro. After that, the window opens with a green WSL: Ubuntu label in the bottom-left corner. It will automatically detect the WSL environment and use the Linux toolchain for building and debugging. This allows you to have a seamless development experience while leveraging the power of Linux within Windows.

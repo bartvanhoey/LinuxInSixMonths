@@ -50,11 +50,11 @@ ls ~/.claude/projects/-home-<user>-src-<repo>/*.jsonl
 
 So nothing is lost. In the restored `claude` tab (which is already in the right folder) run:
 
-| Command           | Result                                                    |
-| ----------------- | --------------------------------------------------------- |
-| `claude --continue` (`-c`) | Reopen the most recent conversation in this folder.|
+| Command                    | Result                                              |
+| -------------------------- | --------------------------------------------------- |
+| `claude --continue` (`-c`) | Reopen the most recent conversation in this folder. |
 | `claude --resume` (`-r`)   | Pick one of the earlier conversations from a list.  |
-| `/resume`         | Same picker, from inside a running Claude Code.           |
+| `/resume`                  | Same picker, from inside a running Claude Code.     |
 
 ### Shortcut alias
 

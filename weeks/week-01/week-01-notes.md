@@ -2,7 +2,7 @@
 
 # Week 1 - WSL2 as your daily driver: notes
 
-**Status:** Not started
+**Status:** Done
 
 ## Exercise 1
 

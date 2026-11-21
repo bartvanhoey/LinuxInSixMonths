@@ -1,3 +1,20 @@
 #!/bin/sh
-# Same file set as .github/workflows/docs-checks.yml
+# Lint Markdown before every push. Same file set as .github/workflows/docs-checks.yml
+
+npx_path=$(command -v npx) || {
+  echo "pre-push: npx not found. Install Node.js in WSL: sudo apt install nodejs npm" >&2
+  exit 1
+}
+
+# In WSL, a Windows Node.js on the PATH (/mnt/c/...) runs through cmd.exe. cmd.exe can't
+# use a \\wsl.localhost\... folder, falls back to C:\Windows and lints 0 files -
+# so the check would pass without checking anything.
+case "$npx_path" in
+  /mnt/*)
+    echo "pre-push: npx is the Windows one ($npx_path), which can't lint files in WSL." >&2
+    echo "pre-push: install Node.js in WSL: sudo apt install nodejs npm" >&2
+    exit 1
+    ;;
+esac
+
 npx --yes markdownlint-cli2 "README.md" "weeks/*.md" "notes/**/*.md" || exit 1

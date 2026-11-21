@@ -418,6 +418,12 @@ The `git_status` item in the herdr spaces menu shows how many commits the branch
 
 Details: [See git changes while working in Claude Code](claude-code-status-line-git-changes.md).
 
+### The markdownlint pre-push hook lints 0 files
+
+`git push` showed `UNC paths are not supported` and `Linting: 0 files`, and the push went through while the GitHub check failed. Node.js was only installed on Windows, so `npx` was the Windows one (`/mnt/c/...`). It runs through `cmd.exe`, which can't use a WSL folder and falls back to `C:\Windows`, where no files match. The fix is `sudo apt install nodejs npm` in WSL, plus a hook that stops the push when `npx` is missing or is the Windows one.
+
+Details: [The markdownlint pre-push hook lints 0 files in WSL](markdownlint-hook-lints-0-files-in-wsl.md).
+
 ## Deliverable
 
 > A working WSL dev setup and a short note of what felt different from Windows.

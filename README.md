@@ -44,62 +44,62 @@ Six months of steady work makes you a strong, confident practitioner: you can ow
 
 *Weeks 1-4. Live in WSL2 daily; pipes, text tools, SSH, vim/tmux.*
 
-- [Week 1 - WSL2 as your daily driver](weeks/week-01-wsl2-as-your-daily-driver.md): Make Linux the place where your normal dev work happens.
-- [Week 2 - Filesystem and files](weeks/week-02-filesystem-and-files.md): Move around confidently and know where things live.
-- [Week 3 - Pipes and text tools](weeks/week-03-pipes-and-text-tools.md): Use the shell as a data-processing tool.
-- [Week 4 - Editors, tmux and SSH basics](weeks/week-04-editors-tmux-and-ssh-basics.md): Be productive on a remote machine with nothing but a terminal.
+- [Week 1 - WSL2 as your daily driver](weeks/week-01/week-01-wsl2-as-your-daily-driver.md): Make Linux the place where your normal dev work happens.
+- [Week 2 - Filesystem and files](weeks/week-02/week-02-filesystem-and-files.md): Move around confidently and know where things live.
+- [Week 3 - Pipes and text tools](weeks/week-03/week-03-pipes-and-text-tools.md): Use the shell as a data-processing tool.
+- [Week 4 - Editors, tmux and SSH basics](weeks/week-04/week-04-editors-tmux-and-ssh-basics.md): Be productive on a remote machine with nothing but a terminal.
 
 ### Phase 2: Linux fundamentals
 
 *Weeks 5-8. Permissions, processes, systemd, packages, storage.*
 
-- [Week 5 - Users, groups and permissions](weeks/week-05-users-groups-and-permissions.md): Understand who may do what, and why 'permission denied' happens.
-- [Week 6 - Processes and signals](weeks/week-06-processes-and-signals.md): See what is running, how it is limited, and how to stop it cleanly.
-- [Week 7 - systemd and journald](weeks/week-07-systemd-and-journald.md): Run and supervise services the standard way.
-- [Week 8 - Packages and storage](weeks/week-08-packages-and-storage.md): Install software properly and understand disks.
+- [Week 5 - Users, groups and permissions](weeks/week-05/week-05-users-groups-and-permissions.md): Understand who may do what, and why 'permission denied' happens.
+- [Week 6 - Processes and signals](weeks/week-06/week-06-processes-and-signals.md): See what is running, how it is limited, and how to stop it cleanly.
+- [Week 7 - systemd and journald](weeks/week-07/week-07-systemd-and-journald.md): Run and supervise services the standard way.
+- [Week 8 - Packages and storage](weeks/week-08/week-08-packages-and-storage.md): Install software properly and understand disks.
 
 ### Phase 3: Run a real server
 
 *Weeks 9-12. VPS from scratch: hardening, Blazor on Kestrel, nginx, TLS, break and fix.*
 
-- [Week 9 - Provision and harden a VPS](weeks/week-09-provision-and-harden-a-vps.md): Get a clean internet-facing server you fully control.
-- [Week 10 - Deploy a Blazor app with Kestrel and systemd](weeks/week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md): Run a real .NET app as a proper Linux service.
-- [Week 11 - nginx reverse proxy and TLS](weeks/week-11-nginx-reverse-proxy-and-tls.md): Put the app behind nginx with HTTPS.
-- [Week 12 - Break it on purpose](weeks/week-12-break-it-on-purpose.md): Learn to diagnose problems from evidence, not guesswork.
+- [Week 9 - Provision and harden a VPS](weeks/week-09/week-09-provision-and-harden-a-vps.md): Get a clean internet-facing server you fully control.
+- [Week 10 - Deploy a Blazor app with Kestrel and systemd](weeks/week-10/week-10-deploy-a-blazor-app-with-kestrel-and-systemd.md): Run a real .NET app as a proper Linux service.
+- [Week 11 - nginx reverse proxy and TLS](weeks/week-11/week-11-nginx-reverse-proxy-and-tls.md): Put the app behind nginx with HTTPS.
+- [Week 12 - Break it on purpose](weeks/week-12/week-12-break-it-on-purpose.md): Learn to diagnose problems from evidence, not guesswork.
 
 ### Phase 4: Networking, Bash, troubleshooting
 
 *Weeks 13-16. ss/tcpdump/dig, tunnels, solid scripts, a debugging method.*
 
-- [Week 13 - Networking fundamentals](weeks/week-13-networking-fundamentals.md): Understand what happens between client and server.
-- [Week 14 - Firewalls and SSH in depth](weeks/week-14-firewalls-and-ssh-in-depth.md): Control access and move traffic safely.
-- [Week 15 - Bash scripting I](weeks/week-15-bash-scripting-i.md): Write scripts you can trust.
-- [Week 16 - Bash II and a troubleshooting method](weeks/week-16-bash-ii-and-a-troubleshooting-method.md): Have a repeatable way to find out what is wrong.
+- [Week 13 - Networking fundamentals](weeks/week-13/week-13-networking-fundamentals.md): Understand what happens between client and server.
+- [Week 14 - Firewalls and SSH in depth](weeks/week-14/week-14-firewalls-and-ssh-in-depth.md): Control access and move traffic safely.
+- [Week 15 - Bash scripting I](weeks/week-15/week-15-bash-scripting-i.md): Write scripts you can trust.
+- [Week 16 - Bash II and a troubleshooting method](weeks/week-16/week-16-bash-ii-and-a-troubleshooting-method.md): Have a repeatable way to find out what is wrong.
 
 ### Phase 5: Containers
 
 *Weeks 17-20. Dockerfiles for .NET, compose, hardening, registries.*
 
-- [Week 17 - Docker fundamentals](weeks/week-17-docker-fundamentals.md): Understand images, containers and what runs underneath.
-- [Week 18 - Dockerfiles for .NET](weeks/week-18-dockerfiles-for-net.md): Build small, fast and safe images for your apps.
-- [Week 19 - docker compose](weeks/week-19-docker-compose.md): Run a multi-container stack the same way everywhere.
-- [Week 20 - Containers deeper](weeks/week-20-containers-deeper.md): Production habits for container workloads.
+- [Week 17 - Docker fundamentals](weeks/week-17/week-17-docker-fundamentals.md): Understand images, containers and what runs underneath.
+- [Week 18 - Dockerfiles for .NET](weeks/week-18/week-18-dockerfiles-for-net.md): Build small, fast and safe images for your apps.
+- [Week 19 - docker compose](weeks/week-19/week-19-docker-compose.md): Run a multi-container stack the same way everywhere.
+- [Week 20 - Containers deeper](weeks/week-20/week-20-containers-deeper.md): Production habits for container workloads.
 
 ### Phase 6: CI/CD on Linux
 
 *Weeks 21-22. Self-hosted Azure DevOps agent, pipeline to production.*
 
-- [Week 21 - Azure DevOps agent on Linux](weeks/week-21-azure-devops-agent-on-linux.md): Own a Linux build agent.
-- [Week 22 - Pipeline to production](weeks/week-22-pipeline-to-production.md): Commit to production, automated.
+- [Week 21 - Azure DevOps agent on Linux](weeks/week-21/week-21-azure-devops-agent-on-linux.md): Own a Linux build agent.
+- [Week 22 - Pipeline to production](weeks/week-22/week-22-pipeline-to-production.md): Commit to production, automated.
 
 ### Phase 7: Automation, monitoring, capstone
 
 *Weeks 23-26. Ansible, Prometheus/Grafana, full rebuild from zero.*
 
-- [Week 23 - Ansible I](weeks/week-23-ansible-i.md): Make server setup repeatable.
-- [Week 24 - Ansible II](weeks/week-24-ansible-ii.md): Structure automation like a professional.
-- [Week 25 - Monitoring and upkeep](weeks/week-25-monitoring-and-upkeep.md): Know about problems before users do.
-- [Week 26 - Capstone and review](weeks/week-26-capstone-and-review.md): Prove the whole chain works from nothing.
+- [Week 23 - Ansible I](weeks/week-23/week-23-ansible-i.md): Make server setup repeatable.
+- [Week 24 - Ansible II](weeks/week-24/week-24-ansible-ii.md): Structure automation like a professional.
+- [Week 25 - Monitoring and upkeep](weeks/week-25/week-25-monitoring-and-upkeep.md): Know about problems before users do.
+- [Week 26 - Capstone and review](weeks/week-26/week-26-capstone-and-review.md): Prove the whole chain works from nothing.
 
 ## Final self-check: what I can do after 26 weeks
 

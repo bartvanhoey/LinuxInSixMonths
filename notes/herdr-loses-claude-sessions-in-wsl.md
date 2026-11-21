@@ -52,7 +52,7 @@ So nothing is lost. In the restored `claude` tab (which is already in the right 
 
 | Command           | Result                                                    |
 | ----------------- | --------------------------------------------------------- |
-| `claude --continue` (`-c`) | Reopen the most recent conversation in this folder. |
+| `claude --continue` (`-c`) | Reopen the most recent conversation in this folder.|
 | `claude --resume` (`-r`)   | Pick one of the earlier conversations from a list.  |
 | `/resume`         | Same picker, from inside a running Claude Code.           |
 

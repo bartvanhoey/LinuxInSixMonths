@@ -412,6 +412,12 @@ An alias is a short name for a longer command. `clc` runs `claude --continue`, w
 
 To remove the alias in the current shell, run `unalias clc`. To remove it for good, delete the line from `~/.bash_aliases`.
 
+### herdr spaces menu doesn't show my uncommitted changes
+
+The `git_status` item in the herdr spaces menu shows how many commits the branch is ahead of or behind its remote, not how many files are changed. herdr has no item for uncommitted changes. Instead, a Claude Code status line script shows the branch and the number of changed, staged and new files under the Claude Code input box.
+
+Details: [See git changes while working in Claude Code](claude-code-status-line-git-changes.md).
+
 ## Deliverable
 
 > A working WSL dev setup and a short note of what felt different from Windows.

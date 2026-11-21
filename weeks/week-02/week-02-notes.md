@@ -2,7 +2,7 @@
 
 # Week 2 - Filesystem and files: notes
 
-**Status:** Not started
+**Status:** In progress
 
 ## Exercise 1
 

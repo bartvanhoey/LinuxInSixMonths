@@ -371,6 +371,32 @@ mkdir: cannot create directory ‘dir2’: Permission denied
 sudo chown -R $USER:$USER /home/playground
 ```
 
+### 5 Working with Commands
+
+#### What exactly are commands?
+
+A command can be one of four different things:
+
+| Kind               | What it is                                                                                                                                                                            |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Executable program | A file like those in `/usr/bin`. It can be a compiled binary (for example a program written in C or C++) or a program in a scripting language (shell, Perl, Python, Ruby, and so on). |
+| Shell builtin      | A command built into the shell itself. `bash` supports a number of these internally. `cd`, for example, is a shell builtin.                                                           |
+| Shell function     | A miniature shell script incorporated into the environment. Configuring the environment and writing shell functions come in later chapters; for now, just be aware that they exist.   |
+| Alias              | A command we define ourselves, built from other commands.                                                                                                                             |
+
+Commands to identify and learn about commands:
+
+| Command   | Purpose                                            |
+| --------- | -------------------------------------------------- |
+| `type`    | Indicate how a command name is interpreted.        |
+| `which`   | Display which executable program will be executed. |
+| `help`    | Get help for shell builtins.                       |
+| `man`     | Display a command's manual page.                   |
+| `apropos` | Display a list of appropriate commands.            |
+| `info`    | Display a command's info entry.                    |
+| `whatis`  | Display one-line manual page descriptions.         |
+| `alias`   | Create an alias for a command.                     |
+
 ## Problems encountered
 
 Problems with the tools around the exercises. Problems from an exercise are noted under that exercise.

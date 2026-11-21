@@ -77,4 +77,6 @@ _Commands, results, what surprised me._
 
 > A personal cheat sheet (Markdown) in a git repo; add to it all 6 months.
 
-_Write-up._
+Started: [cheatsheet.md](../../cheatsheet.md). It is seeded with the commands from Week 1 and has a section ready for each later topic.
+
+_Add the Week 2 commands (`head`, `tail -f`, `du`, `df`, `ln`, `tree`) as I practise them._

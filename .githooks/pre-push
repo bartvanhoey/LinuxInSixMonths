@@ -17,4 +17,4 @@ case "$npx_path" in
     ;;
 esac
 
-npx --yes markdownlint-cli2 "README.md" "weeks/*.md" "notes/**/*.md" || exit 1
+npx --yes markdownlint-cli2 "README.md" "weeks/**/*.md" "overthewire/*.md" || exit 1

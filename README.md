@@ -18,7 +18,7 @@ Build A? · Quality A? · Architecture A? · Tests C?* · Dead Code A? · API A~
 
 - **Time budget:** about 6-8 hours per week, for example four evenings of one hour plus one longer weekend session. Missing a week is fine; shift everything and keep going.
 - **Learn by doing real work.** Every week ends with a deliverable you can show. If you can only read about it, you have not finished the week.
-- **Keep one repo** (notes, scripts, Dockerfiles, playbooks). It becomes your portfolio and your cheat sheet.
+- **Keep one repo** (notes, scripts, Dockerfiles, playbooks). It becomes your portfolio and your cheat sheet: [cheatsheet.md](cheatsheet.md).
 - **Do it by hand first, then automate.** Phases 3-4 are manual on purpose; Ansible in Phase 7 makes the same work repeatable.
 - **Setup:** WSL2 with Ubuntu LTS on your Windows machine, plus one small VPS or VM (a few euros per month) that you are allowed to break.
 

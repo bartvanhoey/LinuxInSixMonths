@@ -276,7 +276,7 @@ ls *[![:digit:]] # all files not ending with a digit
 ```bash
     mkdir dir1
     mkdir dir1 dir2 dir3 # Create multiple directories at once
-    mkdir dir1/dir2/dir3 # Create nested directories
+    mkdir -p dir1/dir2/dir3 # Create nested directories, including any missing parents (without -p this fails if dir1/dir2 does not exist)
 ```
 
 #### cp - Copy files and directories

@@ -8,6 +8,8 @@
 
 **Goal:** Understand what happens between client and server.
 
+**Reading:** Ch. 16 Networking (`ping`, `traceroute`, `ip`, `curl`). Only the basics; use the man pages for `ss`, `dig` and `tcpdump`.
+
 **Exercises:**
 
 - [ ] ip addr/route, ss -tulpn, ping, traceroute/mtr, dig/nslookup, curl -v, /etc/hosts, /etc/resolv.conf.

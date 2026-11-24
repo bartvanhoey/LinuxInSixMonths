@@ -8,6 +8,8 @@
 
 **Goal:** Control access and move traffic safely.
 
+**Reading:** Ch. 16 Networking (`ssh` including Tunneling with SSH, `scp`, `sftp`); Ch. 18 Archiving and Backup (`rsync`). Firewalls are not covered.
+
 **Exercises:**
 
 - [ ] Learn nftables basics under ufw; inspect rules with nft list ruleset.

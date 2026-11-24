@@ -6,6 +6,8 @@
 
 **Budget:** 6-8 hours in 5 sessions. The checklists to tick off live in [week-02-notes.md](week-02-notes.md); this file is the reference behind them.
 
+**Reading:** Ch. 2 Navigation; Ch. 3 Exploring the System (including symbolic and hard links); Ch. 4 Manipulating Files and Directories (including `ln`); Ch. 17 Searching for Files (`find`). Optional: Ch. 15 Storage Media for `df` and `mount`.
+
 ## Overview
 
 | Session | Focus | Time | Exercise |

@@ -8,6 +8,8 @@
 
 **Goal:** Use the shell as a data-processing tool.
 
+**Reading:** Ch. 6 Redirection; Ch. 7 Seeing the World as the Shell Sees It; Ch. 19 Regular Expressions (`grep`); Ch. 20 Text Processing (`sort`, `uniq`, `cut`, `tr`, `sed`). `awk` is not covered, use its man page.
+
 **Exercises:**
 
 - [ ] Master grep (with -r, -i, -E), sed, awk, sort, uniq, cut, tr, xargs, wc.

@@ -8,6 +8,8 @@
 
 **Goal:** Be productive on a remote machine with nothing but a terminal.
 
+**Reading:** Ch. 12 A Gentle Introduction to vi; Ch. 8 Advanced Keyboard Tricks; Ch. 11 The Environment (`.bashrc`, aliases); Ch. 16 Networking (`ssh`). `tmux` and `ssh-agent` are not covered.
+
 **Exercises:**
 
 - [ ] Learn vim survival skills (modes, save/quit, search, replace, copy/paste) and nano as fallback.

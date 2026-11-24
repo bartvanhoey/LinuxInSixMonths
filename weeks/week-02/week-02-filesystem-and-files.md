@@ -8,6 +8,8 @@
 
 **Goal:** Move around confidently and know where things live.
 
+**Reading:** Ch. 2 Navigation; Ch. 3 Exploring the System (including symbolic and hard links); Ch. 4 Manipulating Files and Directories (including `ln`); Ch. 17 Searching for Files (`find`). Optional: Ch. 15 Storage Media for `df` and `mount`.
+
 **Exercises:**
 
 - [ ] Study the layout: /etc, /var, /usr, /home, /tmp, /proc. Explore each with ls and find.

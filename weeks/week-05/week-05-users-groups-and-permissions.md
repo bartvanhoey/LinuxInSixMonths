@@ -8,6 +8,8 @@
 
 **Goal:** Understand who may do what, and why 'permission denied' happens.
 
+**Reading:** Ch. 9 Permissions (`chmod`, `chown`, `umask`, `su`, `sudo`, setuid, setgid, sticky bit). Users, groups and ACLs are only touched on; use the man pages.
+
 **Exercises:**
 
 - [ ] Practice chmod (symbolic and octal), chown, chgrp, umask, sticky bit, setgid directories.

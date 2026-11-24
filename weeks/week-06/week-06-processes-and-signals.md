@@ -8,6 +8,8 @@
 
 **Goal:** See what is running, how it is limited, and how to stop it cleanly.
 
+**Reading:** Ch. 10 Processes (`ps`, `top`, `jobs`, `bg`, `fg`, `kill`, signals).
+
 **Exercises:**
 
 - [ ] Use ps, top/htop, pgrep, kill, nice, jobs, bg/fg, lsof and explore `/proc/<pid>`.

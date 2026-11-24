@@ -8,6 +8,8 @@
 
 **Goal:** Install software properly and understand disks.
 
+**Reading:** Ch. 14 Package Management (`apt`, `dpkg`); Ch. 15 Storage Media (`mount`, `/etc/fstab`, formatting). LVM is not covered.
+
 **Exercises:**
 
 - [ ] apt: update, upgrade, search, show, policy, autoremove; dpkg -L and dpkg -S.

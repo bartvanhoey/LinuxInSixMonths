@@ -8,6 +8,8 @@
 
 **Goal:** Make Linux the place where your normal dev work happens.
 
+**Reading:** Ch. 1 What Is the Shell?; Ch. 5 Working with Commands (`type`, `which`, `help`, `man`, `alias`).
+
 **Exercises:**
 
 - [x] Install WSL2 with Ubuntu LTS and Windows Terminal; install git and the .NET SDK inside WSL.

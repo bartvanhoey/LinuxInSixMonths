@@ -8,6 +8,8 @@
 
 **Goal:** Write scripts you can trust.
 
+**Reading:** Ch. 24-29 (first script through `while`/`until` loops) and Ch. 31-36 (`case`, positional parameters, `for`, strings and numbers, arrays, exotica with `trap`).
+
 **Exercises:**
 
 - [ ] Variables, quoting, conditionals, loops, functions, arrays, exit codes, trap, getopts.

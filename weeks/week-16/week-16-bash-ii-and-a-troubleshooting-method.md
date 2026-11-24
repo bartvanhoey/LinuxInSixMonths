@@ -8,6 +8,8 @@
 
 **Goal:** Have a repeatable way to find out what is wrong.
 
+**Reading:** Ch. 30 Troubleshooting (scripts); Ch. 18 Archiving and Backup (backup scripts with `rsync`).
+
 **Exercises:**
 
 - [ ] logrotate, cron versus timers, a backup script with retention and a restore test.

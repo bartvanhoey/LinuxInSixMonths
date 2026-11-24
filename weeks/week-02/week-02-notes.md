@@ -10,6 +10,17 @@
 
 _Commands, results, what surprised me._
 
+**Checklist** (session 1, about 1.5 h; see the [plan](week-02-plan.md#session-1-layout-tour-exercise-1)):
+
+- [x] Write the directory table (below).
+- [ ] `/etc`: `ls /etc | head -30`, `cat /etc/os-release`, `cat /etc/hostname`, `head /etc/passwd`; count configs with `find /etc -name "*.conf" 2>/dev/null | wc -l`.
+- [ ] `/var`: `ls /var/log`, `du -sh /var/* 2>/dev/null`; find out what grows here and what `/var/lib` holds.
+- [ ] `/usr`: `ls /usr/bin | wc -l`, `ls -l /bin /lib /sbin` (confirm the symlinks), `which dotnet git`.
+- [ ] `/home` and `/tmp`: `ls -la ~` (dotfiles such as `.bashrc`, `.profile`, `.ssh`), `ls -ld /tmp` (sticky bit).
+- [ ] `/proc`: `head /proc/cpuinfo`, `head /proc/meminfo`, `cat /proc/$$/cmdline`, `ls -l /proc/$$/fd`.
+- [ ] WSL: `ls /mnt/c`, `findmnt /mnt/c`, `mount | head`; compare with the week 1 filesystem performance notes.
+- [ ] Write down three surprises and one useful `/proc` example.
+
 ### Directories of Linux Systems
 
 | Directory | Contents |
@@ -43,6 +54,42 @@ _Commands, results, what surprised me._
 
 _Commands, results, what surprised me._
 
+**Checklist** (sessions 2 and 3, about 2.5 h; see the [plan](week-02-plan.md#session-2-viewing-size-and-links-exercise-2-part-1)):
+
+Viewing files:
+
+- [ ] `less`: `/pattern`, `n`/`N`, `g`/`G`, `F` (follow), `q`.
+- [ ] `head -n 5`, `tail -n 5`, `wc -l`, `file`.
+
+Disk usage and `tree`:
+
+- [ ] `df -h` and `df -hT`; note the 9p/drvfs mounts for Windows drives.
+- [ ] `du -sh`, `du -h --max-depth=1 | sort -h`, `du -ah | sort -rh | head`.
+- [ ] Explain why `df` (per filesystem) and `du` (per directory tree) can disagree.
+- [ ] `sudo apt install tree`; try `tree -L 2`, `tree -a -I node_modules`, `tree -d`.
+
+Links lab in `/tmp/links-lab`:
+
+- [ ] Create `a.txt`, `ln a.txt hard.txt`, `ln -s a.txt soft.txt`.
+- [ ] `ls -li`: compare inode numbers (hard link shares one, symlink does not).
+- [ ] Delete `a.txt`: hard link still works, symlink is dangling; find it with `find . -xtype l`.
+- [ ] `stat` each file and watch the link count.
+- [ ] Try a hard link to a directory and across filesystems; note both errors and why symlinks have no such limits.
+- [ ] Real-world symlinks: `ls -l /etc/alternatives`, `readlink -f $(which dotnet)`.
+
+`find` in depth (do it under `~`, not `/mnt/c`):
+
+- [ ] Name and type: `-name`, `-iname`, `-type f|d|l`.
+- [ ] Size and time: `-size +10M`, `-mtime -1`, `-mmin -30`.
+- [ ] Owner and permissions: `-user`, `-perm`.
+- [ ] Actions: `-exec cmd {} \;` vs `-exec cmd {} +`; run without `-delete` first.
+- [ ] Pruning: `find . -name bin -prune -o -name "*.cs" -print`.
+- [ ] Hide errors with `2>/dev/null` and note why it goes at the end.
+- [ ] Challenge: the 10 largest files under `~/src`.
+- [ ] Challenge: `.csproj` files modified this week.
+- [ ] Challenge: all empty directories in a repo.
+- [ ] Compare `find` with `locate` (`sudo updatedb`) and `fd`.
+
 ### Example of a symbolic link
 
 ```bash
@@ -67,11 +114,35 @@ Programs ask for `libc.so.6`; the system can swap the real library (`libc-2.6.so
 
 _Commands, results, what surprised me._
 
+**Checklist** (session 4, about 1 h; see the [plan](week-02-plan.md#session-4-net-app-with-tail--f-exercise-3)):
+
+- [ ] Create or reuse an app: `dotnet new webapi -o ~/src/tail-demo`.
+- [ ] Terminal 1: `dotnet run > /tmp/app.log 2>&1`.
+- [ ] Terminal 2: `tail -f /tmp/app.log`.
+- [ ] Terminal 3: `curl -i localhost:<port>/weatherforecast`, plus a request to a missing route (404).
+- [ ] Try `tail -n 50 -f`, `tail -F`, `grep --line-buffered` on the live stream, and `less +F`.
+- [ ] Add `logger.LogInformation(...)` in code and find the line in the output.
+- [ ] Note why stdout and stderr both need redirecting.
+- [ ] Note what `tail -f` does when the file is deleted or truncated.
+- [ ] Bonus: `ls -l /proc/<pid>/fd` for the dotnet process.
+
 ## Exercise 4
 
 > Bandit levels 6-12.
 
 _Commands, results, what surprised me._
+
+**Checklist** (session 5; see the [plan](week-02-plan.md#session-5-bandit-6-12-and-wrap-up-exercise-4--deliverable)). Detailed notes go in [bandit.md](../../overthewire/bandit.md): approach and concept only, never passwords.
+
+- [ ] Level 6 → 7
+- [ ] Level 7 → 8
+- [ ] Level 8 → 9
+- [ ] Level 9 → 10
+- [ ] Level 10 → 11
+- [ ] Level 11 → 12
+- [ ] Level 12 → 13
+- [ ] Time-box each level to 30 minutes before looking for hints.
+- [ ] Update the progress table in [overthewire/README.md](../../overthewire/README.md).
 
 ## Deliverable
 
@@ -80,3 +151,16 @@ _Commands, results, what surprised me._
 Started: [cheatsheet.md](../../cheatsheet.md). It is seeded with the commands from Week 1 and has a section ready for each later topic.
 
 _Add the Week 2 commands (`head`, `tail -f`, `du`, `df`, `ln`, `tree`) as I practise them._
+
+**Checklist:**
+
+- [ ] Fill the Viewing files, Disk usage, Links, Finding files and Tricky file names sections of the cheatsheet.
+- [ ] Add one "what I'd forget" example per command; only commands I have run.
+
+## Wrap-up
+
+- [ ] Answer the [self-check](week-02-plan.md#self-check-before-moving-on) questions.
+- [ ] Tick the exercises and the **Done** box in [week-02-filesystem-and-files.md](week-02-filesystem-and-files.md).
+- [ ] Set **Status** at the top of this file to Done.
+- [ ] Run the markdownlint check (see the README).
+- [ ] Commit on a branch like `docs/week-02-...` and open a PR.

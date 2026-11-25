@@ -32,7 +32,7 @@ _Commands, results, what surprised me._
 **Checklist** (session 1, about 1.5 h; see the [plan](week-02-plan.md#session-1-layout-tour-exercise-1)):
 
 - [x] Write the directory table (below).
-- [ ] `/etc`: `ls /etc | head -30`, `cat /etc/os-release`, `cat /etc/hostname`, `head /etc/passwd`; count configs with `find /etc -name "*.conf" 2>/dev/null | wc -l`.
+- [x] `/etc`: `ls /etc | head -30`, `cat /etc/os-release`, `cat /etc/hostname`, `head /etc/passwd`; count configs with `find /etc -name "*.conf" 2>/dev/null | wc -l`.
 - [ ] `/var`: `ls /var/log`, `du -sh /var/* 2>/dev/null`; find out what grows here and what `/var/lib` holds.
 - [ ] `/usr`: `ls /usr/bin | wc -l`, `ls -l /bin /lib /sbin` (confirm the symlinks), `which dotnet git`.
 - [ ] `/home` and `/tmp`: `ls -la ~` (dotfiles such as `.bashrc`, `.profile`, `.ssh`), `ls -ld /tmp` (sticky bit).

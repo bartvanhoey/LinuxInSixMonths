@@ -33,29 +33,6 @@ cd ..
 
 # List all files and directories in "week-01"
 ls -l
-
-# Read the content of the file called -
-cat < -
-
-# Read the content of the file called --spaces in this filename--
-cat < --spaces in this filename--
-# => -bash: --spaces: No such file or directory
-# Without quotes the shell splits the name at the spaces, so it redirects from "--spaces" only.
-
-cat < '--spaces in this filename--'
-
-# Read the content of a hidden file called ...hidden-file
-cat < ...hidden-file
-
-# Find all files in the current directory & subdirectories exactly 1033 bytes and not executable
-find . -type f -size 1033c ! -executable
-
-# Same search, and show the file type of each match (to check which one is human-readable text)
-find . -type f -size 1033c ! -executable -exec file {} +
-
-# Same search, and display the contents of each match
-find . -type f -size 1033c ! -executable -exec cat {} +
-
-# Same search, display the contents with all spaces and newlines removed, then end with one newline
-find . -type f -size 1033c ! -executable -exec cat {} + | tr -d ' \n';  echo
 ```
+
+The `/etc`, tricky file name and `find` exercises moved to [Week 02 - Exercises](../week-02/week-02-exercises.md).

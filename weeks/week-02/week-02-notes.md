@@ -4,6 +4,25 @@
 
 **Status:** In progress
 
+The first directory in the filesystem is called the `root directory` and contains files and subdirectories
+
+_what is the difference /$ and ~$ ?_
+
+In the bash prompt, the part after the colon shows your current directory:
+
+- your-username@hostname:/$ — you're in /, the root of the filesystem (the top-level directory that contains everything else). The $ means a normal (non-root) user.
+- your-username@hostname:~$ — you're in ~, your home directory, which is /home/your-username.
+
+_Some Useful Shortcuts_
+
+Useful ways to quickly change the current working directory:
+
+| Shortcut | Description |
+| --- | --- |
+| `cd` | Changes the working directory to your home directory. |
+| `cd -` | Changes the working directory to the previous working directory. |
+| `cd ~user_name` | Changes the working directory to the home directory of `user_name`. For example, `cd ~bob` changes to the home directory of user `bob`. |
+
 ## Exercise 1
 
 > Study the layout: /etc, /var, /usr, /home, /tmp, /proc. Explore each with ls and find.

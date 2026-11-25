@@ -33,12 +33,11 @@ _Commands, results, what surprised me._
 
 - [x] Write the directory table (below).
 - [x] `/etc`: `ls /etc | head -30`, `cat /etc/os-release`, `cat /etc/hostname`, `head /etc/passwd`; count configs with `find /etc -name "*.conf" 2>/dev/null | wc -l`.
-- [ ] `/var`: `ls /var/log`, `du -sh /var/* 2>/dev/null`; find out what grows here and what `/var/lib` holds.
-- [ ] `/usr`: `ls /usr/bin | wc -l`, `ls -l /bin /lib /sbin` (confirm the symlinks), `which dotnet git`.
-- [ ] `/home` and `/tmp`: `ls -la ~` (dotfiles such as `.bashrc`, `.profile`, `.ssh`), `ls -ld /tmp` (sticky bit).
-- [ ] `/proc`: `head /proc/cpuinfo`, `head /proc/meminfo`, `cat /proc/$$/cmdline`, `ls -l /proc/$$/fd`.
-- [ ] WSL: `ls /mnt/c`, `findmnt /mnt/c`, `mount | head`; compare with the week 1 filesystem performance notes.
-- [ ] Write down three surprises and one useful `/proc` example.
+- [x] `/var`: `ls /var/log`, `du -sh /var/* 2>/dev/null`; find out what grows here and what `/var/lib` holds.
+- [x] `/usr`: `ls /usr/bin | wc -l`, `ls -l /bin /lib /sbin` (confirm the symlinks), `which dotnet git`.
+- [x] `/home` and `/tmp`: `ls -la ~` (dotfiles such as `.bashrc`, `.profile`, `.ssh`), `ls -ld /tmp` (sticky bit).
+- [x] `/proc`: `head /proc/cpuinfo`, `head /proc/meminfo`, `cat /proc/$$/cmdline`, `ls -l /proc/$$/fd`.
+- [x] WSL: `ls /mnt/c`, `findmnt /mnt/c`, `mount | head`; compare with the week 1 filesystem performance notes.
 
 ### Directories of Linux Systems
 
@@ -96,6 +95,20 @@ sudo du -sh /var/log/*          # what is using space
 - Modern Ubuntu keeps much of its data in the systemd journal, so `journalctl` often shows more than the text files.
 - On WSL2 there is no full systemd boot by default, so some files (such as `auth.log` or `kern.log`) may be missing or sparse.
 
+### `which`: locate a command
+
+`which` prints the full path of the executable that would run, searching `$PATH` in order.
+
+```bash
+which git          # /usr/bin/git
+which -a python3   # every match in $PATH, not just the first
+type -a git        # also shows builtins, aliases and functions
+readlink -f $(which dotnet)   # follow symlinks to the real file
+```
+
+- `which` misses builtins and aliases; use `type` for those, or `command -v` in scripts.
+- On WSL, `PATH` includes Windows directories, so `/mnt/c/...` in the output means the Windows version runs.
+
 ## Exercise 2
 
 > Practice find, less, head, tail -f, du, df, ln (hard and symbolic links), tree.
@@ -106,13 +119,13 @@ _Commands, results, what surprised me._
 
 Viewing files:
 
-- [ ] `less`: `/pattern`, `n`/`N`, `g`/`G`, `F` (follow), `q`.
-- [ ] `head -n 5`, `tail -n 5`, `wc -l`, `file`.
+- [x] `less`: `/pattern`, `n`/`N`, `g`/`G`, `F` (follow), `q`.
+- [x] `head -n 5`, `tail -n 5`, `wc -l`, `file`.
 
 Disk usage and `tree`:
 
 - [ ] `df -h` and `df -hT`; note the 9p/drvfs mounts for Windows drives.
-- [ ] `du -sh`, `du -h --max-depth=1 | sort -h`, `du -ah | sort -rh | head`.
+- [x] `du -sh`, `du -h --max-depth=1 | sort -h`, `du -ah | sort -rh | head`.
 - [ ] Explain why `df` (per filesystem) and `du` (per directory tree) can disagree.
 - [ ] `sudo apt install tree`; try `tree -L 2`, `tree -a -I node_modules`, `tree -d`.
 
@@ -137,6 +150,49 @@ Links lab in `/tmp/links-lab`:
 - [ ] Challenge: `.csproj` files modified this week.
 - [ ] Challenge: all empty directories in a repo.
 - [ ] Compare `find` with `locate` (`sudo updatedb`) and `fd`.
+
+### `head`: first lines of a file
+
+`head` prints the first 10 lines of a file or piped input.
+
+```bash
+head -n 5 /etc/passwd     # first 5 lines
+head -n -3 file.txt       # everything except the last 3 lines
+head -c 100 file.bin      # first 100 bytes
+ls /etc | head -30        # first 30 entries of a command's output
+head -n 20 file | tail -n 5   # lines 16-20
+```
+
+- `tail` is the counterpart for the end of a file.
+- It stops reading once it has enough, so it is fast on huge files.
+
+### `du`: disk usage
+
+`du` (disk usage) reports how much disk space files and directories take up, walking the directory tree recursively.
+
+```bash
+du -sh ~/src                      # one total for a directory, human-readable
+du -h --max-depth=1               # size of each immediate subdirectory
+du -h --max-depth=1 | sort -h     # same, sorted smallest to largest
+du -ah | sort -rh | head          # 10 biggest files and directories under here
+du -sh /var/* 2>/dev/null         # sizes of everything in /var, hiding permission errors
+```
+
+| Option | Meaning |
+| --- | --- |
+| `-h` | Human-readable sizes (K, M, G). |
+| `-s` | Summary: only the total for each argument. |
+| `-a` | Include files, not just directories. |
+| `-c` | Add a grand total line at the end. |
+| `--max-depth=N`, `-d N` | Limit how deep it descends. |
+| `-x` | Stay on one filesystem (skips mounts such as `/mnt/c` on WSL). |
+| `--apparent-size` | Show file content size instead of blocks used on disk. |
+
+`du` versus `df`:
+
+- `du` adds up the files under a directory tree: "what is using the space?"
+- `df` asks the filesystem how much is used and free: "how full is the disk?"
+- They can disagree: a deleted file that a running process still holds open counts in `df` but is invisible to `du`. Filesystem overhead and mounts that `du` does not cross also cause differences.
 
 ### Example of a symbolic link
 

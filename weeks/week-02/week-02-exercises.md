@@ -67,4 +67,32 @@ ls ~ /usr
 # List entries in the current directory as a detailed, time-sorted list, from oldest to newest.
 ls -lt --reverse
 
+# Counts the number of entries displayed in /usr/bin.
+ls /usr/bin | wc -l
+
+# Display details in long format for entries in three system directories
+ls -l /bin /lib /sbin
+
+# List all files in the user's home directory, including hidden files, in long format
+ls -la ~
+
+# List the details of the /tmp directory itself, not its contents
+ls -ld /tmp
+
+```
+
+## Exercise 2: `du` (disk usage) in depth
+
+```bash
+# du stands for disk usage. It reports how much disk space files and directories take up, and it walks the directory tree recursively.
+
+# Show the disk usage of ~/src directory inside the user's home directory, in human-readable format (e.g., KB, MB, GB):
+du -sh ~/src
+
+# sizes of everything in /var, hiding permission errors
+du -sh /var/* 2>/dev/null
+
+# 10 biggest files and directories under here
+du -ah | sort -rh | head
+
 ```

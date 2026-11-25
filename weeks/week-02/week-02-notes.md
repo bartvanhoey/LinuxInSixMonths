@@ -67,6 +67,35 @@ _Commands, results, what surprised me._
 | `/usr` | Installed programs, libraries and shared data. |
 | `/var` | Variable data: logs, caches, spool files. |
 
+### `/var/log`: system and application logs
+
+| Path | Contents |
+| --- | --- |
+| `syslog` | General system messages; the first place to look. |
+| `auth.log` | Logins, `sudo` use, SSH attempts, authentication failures. |
+| `kern.log`, `dmesg` | Kernel messages and hardware/driver output from boot. |
+| `boot.log` | Output of services at boot time. |
+| `apt/` | `history.log` (what was installed or removed) and `term.log`. |
+| `dpkg.log` | Low-level package install, upgrade and remove records. |
+| `unattended-upgrades/` | Automatic security update logs. |
+| `journal/` | The systemd journal (binary); read with `journalctl`. |
+| `wtmp`, `btmp`, `lastlog` | Binary login records; read with `last`, `sudo lastb` and `lastlog`. |
+| `apache2/`, `nginx/`, `postgresql/` | Appear only when those packages are installed. |
+| `*.1`, `*.2.gz` | Older logs rotated by `logrotate`; read `.gz` files with `zcat` or `zless`. |
+
+```bash
+ls -lh /var/log                 # list the files with sizes
+sudo tail -f /var/log/syslog    # follow a log live
+sudo less /var/log/auth.log     # page through a log
+journalctl -b                   # logs from the current boot
+journalctl -u ssh               # logs for one service
+sudo du -sh /var/log/*          # what is using space
+```
+
+- Many logs are readable only by root or the `adm` group, so use `sudo`.
+- Modern Ubuntu keeps much of its data in the systemd journal, so `journalctl` often shows more than the text files.
+- On WSL2 there is no full systemd boot by default, so some files (such as `auth.log` or `kern.log`) may be missing or sparse.
+
 ## Exercise 2
 
 > Practice find, less, head, tail -f, du, df, ln (hard and symbolic links), tree.

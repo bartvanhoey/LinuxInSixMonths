@@ -51,3 +51,20 @@ find . -type f -size 1033c ! -executable -exec cat {} +
 # Same search, display the contents with all spaces and newlines removed, then end with one newline
 find . -type f -size 1033c ! -executable -exec cat {} + | tr -d ' \n';  echo
 ```
+
+## Exercise 2: `ls` in depth
+
+```bash
+# List all files in the current directory, including hidden files, and show their inode numbers
+ls -lai
+
+# List all files in the current directory, including hidden files, and show their inode numbers, sorted by inode number
+ls -lai | sort -n
+
+# List both the user's home directory (symbolized by the “~” character) and the /usr directory:
+ls ~ /usr
+
+# List entries in the current directory as a detailed, time-sorted list, from oldest to newest.
+ls -lt --reverse
+
+```
